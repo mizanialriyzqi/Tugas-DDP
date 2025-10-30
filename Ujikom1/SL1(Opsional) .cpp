@@ -10,8 +10,10 @@ int main() {
     detik_awal = detik;
 
     // Konversi Detik Menjadi Waktu Jam + Hari
-    long long jam = detik / 3600;
-    sisa_detik = detik %= 3600;
+    long long hari = detik / 86400;
+    sisa_detik = detik &= 86400;
+    long long jam = sisa_detik / 3600;
+    sisa_detik = sisa_detik %= 3600;
     long long menit = sisa_detik / 60;
     sisa_detik = sisa_detik %= 60;
     akhir_detik = sisa_detik;
@@ -21,7 +23,7 @@ int main() {
     cout << "========================================" << endl;
     cout << "       Konversi Dari " << detik_awal << endl; 
     cout << "========================================" << endl;
-    cout << jam << "JAM, " << menit << "MENIT, " << akhir_detik << "DETIK." << endl;
+    cout << hari << "HARI, "<< jam << "JAM, " << menit << "MENIT, " << akhir_detik << "DETIK." << endl;
     cout << "========================================" << endl;
    
 
